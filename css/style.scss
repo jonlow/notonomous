@@ -96,14 +96,15 @@ header {
 	
 }
 
-#container {
+#notonomous {
 	
 	padding: 0 90px;
 	
-	h2#firstTime {
+	h2 {
 		font-family: 'Lato', sans-serif;
 		font-weight: 100;
-		font-size: 18px;
+		font-size: 24px;
+		margin: 0 0 14px 0;
 	}
 	
 }
@@ -132,6 +133,61 @@ header {
 		border: 1px solid #DDD;
 		font-family: 'Lato', sans-serif;
 		font-weight: 400;
+	}
+	
+}
+
+div#notes {
+	
+	.control-bar {
+		
+		h2 {
+			float: left;
+		}
+		
+		a {
+			float: right;
+			font-family: 'Lato', sans-serif;
+			font-weight: 400;
+		}
+		
+	}
+	
+	#notes-list {
+
+		margin: 0;
+
+		li {
+			list-style: none;
+			background: #F3F3F3;
+			overflow: hidden;
+			padding: 5px;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			margin: 0 0 2px 0;
+		}
+
+	}
+	
+}
+
+div.note {
+	
+	h1 {
+		float: left;
+		padding: 5px;
+	}
+	
+	ul {
+		
+		margin: 0;
+		float: right;
+		
+		li {
+			margin: 0;
+		}
+		
 	}
 	
 }

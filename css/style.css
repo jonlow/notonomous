@@ -193,12 +193,13 @@ header {
     font-size: 26px;
     color: #DDD; }
 
-#container {
+#notonomous {
   padding: 0 90px; }
-  #container h2#firstTime {
+  #notonomous h2 {
     font-family: 'Lato', sans-serif;
     font-weight: 100;
-    font-size: 18px; }
+    font-size: 24px;
+    margin: 0 0 14px 0; }
 
 #editor {
   margin: 45px 0; }
@@ -220,6 +221,33 @@ header {
     border: 1px solid #DDD;
     font-family: 'Lato', sans-serif;
     font-weight: 400; }
+
+div#notes .control-bar h2 {
+  float: left; }
+div#notes .control-bar a {
+  float: right;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400; }
+div#notes #notes-list {
+  margin: 0; }
+  div#notes #notes-list li {
+    list-style: none;
+    background: #F3F3F3;
+    overflow: hidden;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin: 0 0 2px 0; }
+
+div.note h1 {
+  float: left;
+  padding: 5px; }
+div.note ul {
+  margin: 0;
+  float: right; }
+  div.note ul li {
+    margin: 0; }
 
 .ir {
   display: block;
