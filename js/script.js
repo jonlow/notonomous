@@ -1,5 +1,6 @@
 $(function(){
-
+	
+	// this stuff should be updated, in favour of view bindings in NotonomousView
 	$('.createNote').click(function () {
 		createNote();
 	});
@@ -22,9 +23,8 @@ $(function(){
 	// the note model
 	window.Note = Backbone.Model.extend({
 		
-		localStorage: new Store("notes"),
-		
 		initialize: function () {
+			// make sure we store when the date was created
 			this.set({"created": new Date()});			
 		},
 		
@@ -43,18 +43,11 @@ $(function(){
 		
 		model: Note,
 		
+		// we've replaced Backbone.sync with the localStorage adapter
 		localStorage: new Store("notes")
 		
 	});
 	window.Notes = new NotesList();
-	
-	Notes.bind("add", function (note) {
-		log('new note: ' + note.get('title'));
-	});
-	
-	Notes.bind("reset", function (col) {
-		log('Notes.reset: ' + col.length);
-	});
 	
 	// a list of notes
 	window.NotesView = Backbone.View.extend({
@@ -80,19 +73,11 @@ $(function(){
 		render: function () {
 			
 			$(this.el).html(this.template(this.model.toJSON()));
-			this.setContent();
 			return this;
 			
 		},
 		
-		setContent: function () {
-			
-			var title = this.model.get('title');
-			
-			this.$('h1').text(title);
-			
-		},
-		
+		// this needs to be refactored to use Backbone.Router and shebang/hashbangs
 		edit: function () {
 			
 			window.currentNote = this.model;
@@ -111,43 +96,50 @@ $(function(){
 	// the app itself
 	window.NotonomousView = Backbone.View.extend({
 		
+		// bind to the existing element
 		el: $("#notonomous"),
 		
+		// need to udpate this to bind createNote, etc to this view
 		events: {
 			"click #save": "saveNote"
 		},
 		
 		initialize: function () {
 			
-			_.bindAll(this, 'notesAdd', 'notesReset', 'render');
+			_.bindAll(this, 'noteAdd', 'notesReset', 'notesBootstrap', 'render');
 			
-			Notes.bind('add', this.notesAdd);
+			Notes.bind('add', this.noteAdd);
 			Notes.bind('reset', this.notesReset);
 			Notes.bind('reset', this.notesBootstrap);
 			Notes.bind('all', this.render);
 			
+			// load the collection (and therefore model)
 			Notes.fetch();
 			
 		},
 		
-		notesAdd: function (note) {
+		// add an actual note to the list of 'your notes'
+		noteAdd: function (note) {
 			var view = new NotesView({model: note});
 			this.$('#notes-list').append(view.render().el);
 		},
 		
+		// the entire Notes collection has been reset (a load from localStorage), update the views
 		notesReset: function () {
-			log('notesReset');
-			Notes.each(this.notesAdd);
+			Notes.each(this.noteAdd);
 		},
 		
+		// do we show the firstTime note, or do we show the list of 'your notes'?
 		notesBootstrap: function () {
 			$('#' + (Notes.length === 0 ? 'firstTime' : 'notes')).fadeIn('slow');
 		},
 		
+		// ?
 		render: function () {
-			log('render');
 		},
 		
+		// this needs to be refactored, it currently saves a note each and every time
+		// regardless if you're actually editing a note, rather than creating one
 		getNoteAttributes: function () {
 			
 			return {
@@ -172,6 +164,7 @@ $(function(){
 		
 	});
 	
+	// start the application
 	window.App = new NotonomousView;
 	
 });
