@@ -73,6 +73,32 @@ $(function(){
 		
 	});
 	
+	// the editing view
+	window.EditorView = Backbone.View.extend({
+		
+		// bind to the existing element
+		el: $("#editor"),
+		
+		// let's keep our model up to date whenever one of the input changes
+		events: {
+			"change #title": "titleChanged",
+			"change #content": "contentChanged"
+		},
+		
+		initialize: function () {
+			_.bindAll(this, 'titleChanged', 'contentChanged');
+		},
+		
+		titleChanged: function (e) {
+			window.currentNote.set({title: $(e.target).val()});
+		},
+		
+		contentChanged: function (e) {
+			window.currentNote.set({content: $(e.target).val()});
+		}
+		
+	});
+	
 	// the app itself
 	window.NotonomousView = Backbone.View.extend({
 		
@@ -80,11 +106,15 @@ $(function(){
 		el: $("#notonomous"),
 		
 		// need to udpate this to bind createNote, etc to this view
+		// ideally this should be moved to the Editor view
 		events: {
 			"click #save": "saveNote"
 		},
 		
 		initialize: function () {
+			
+			// initialise the editor view
+			window.Editor = new EditorView
 			
 			_.bindAll(this, 'noteAdd', 'notesReset', 'notesBootstrap', 'render');
 			
@@ -118,20 +148,14 @@ $(function(){
 		render: function () {
 		},
 		
-		// this needs to be refactored, it currently saves a note each and every time
-		// regardless if you're actually editing a note, rather than creating one
-		getNoteAttributes: function () {
-			
-			return {
-				title: $('#title').val(),
-				content: $('#content').val()
-			};
-			
-		},
-		
 		saveNote: function (e) {
 			
-			Notes.create(this.getNoteAttributes()); // window.currentNote.save();
+			// either create, or save the current note
+			if (window.currentNote.isNew()) {
+				Notes.create(window.currentNote);
+			} else {
+				window.currentNote.save();
+			}
 			
 			// reset the hashbang
 			AppController.navigate("");
