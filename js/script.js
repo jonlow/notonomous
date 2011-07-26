@@ -1,25 +1,5 @@
 $(function(){
 	
-	// this stuff should be updated, in favour of view bindings in NotonomousView
-	$('.createNote').click(function () {
-		createNote();
-	});
-	
-	createNote = function () {
-		
-		// create a new Note
-		window.currentNote = new Note();
-		
-		$('#firstTime,#notes').fadeOut('fast', function () {
-			$('#editor').fadeIn('slow');
-		});
-		
-	}
-	
-	/*
-		Backbone
-	*/
-	
 	// the note model
 	window.Note = Backbone.Model.extend({
 		
@@ -153,6 +133,9 @@ $(function(){
 			
 			Notes.create(this.getNoteAttributes()); // window.currentNote.save();
 			
+			// reset the hashbang
+			AppController.navigate("");
+			
 			$('#title').val('');
 			$('#content').val('');
 			
@@ -163,6 +146,35 @@ $(function(){
 		}
 		
 	});
+	
+	window.Controller = Backbone.Router.extend({
+		
+		initialize: function () {
+			Backbone.history.start();
+		},
+		
+		routes: {
+			"!/local/create": "createNote",
+			"!/local/:note": "editNote"
+		},
+		
+		createNote: function () {
+			
+			// ok, let's create a new note!
+			window.currentNote = new Note();
+
+			$('#firstTime,#notes').fadeOut('fast', function () {
+				$('#editor').fadeIn('slow');
+			});
+			
+		},
+		
+		editNote: function (note) {
+			log('edit note: ' + note);
+		}
+		
+	});
+	window.AppController = new Controller;
 	
 	// start the application
 	window.App = new NotonomousView;
