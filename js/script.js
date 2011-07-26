@@ -64,6 +64,10 @@ $(function(){
 		
 		template: _.template($('#note-list-template').html()),
 		
+		events: {
+			"dblclick": "edit"
+		},
+		
 		initialize: function () {
 			
 			_.bindAll(this, 'render');
@@ -87,6 +91,19 @@ $(function(){
 			
 			this.$('h1').text(title);
 			
+		},
+		
+		edit: function () {
+			
+			window.currentNote = this.model;
+			
+			$('#title').val(this.model.get('title'));
+			$('#content').val(this.model.get('content'));
+			
+			$('#notes').fadeOut('fast', function () {
+				$('#editor').fadeIn('fast');
+			});
+			
 		}
 		
 	});
@@ -102,8 +119,6 @@ $(function(){
 		
 		initialize: function () {
 			
-			log('NotonomousView.initialize');
-			
 			_.bindAll(this, 'notesAdd', 'notesReset', 'render');
 			
 			Notes.bind('add', this.notesAdd);
@@ -116,7 +131,6 @@ $(function(){
 		},
 		
 		notesAdd: function (note) {
-			log('notesAdd');
 			var view = new NotesView({model: note});
 			this.$('#notes-list').append(view.render().el);
 		},
@@ -145,7 +159,7 @@ $(function(){
 		
 		saveNote: function (e) {
 			
-			Notes.create(this.getNoteAttributes());
+			Notes.create(this.getNoteAttributes()); // window.currentNote.save();
 			
 			$('#title').val('');
 			$('#content').val('');
