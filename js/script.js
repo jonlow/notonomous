@@ -38,7 +38,8 @@ $(function(){
 		template: _.template($('#note-list-template').html()),
 		
 		events: {
-			"dblclick": "edit"
+			"dblclick": "edit",
+			"click .icon-preview": "preview"
 		},
 		
 		initialize: function () {
@@ -67,6 +68,24 @@ $(function(){
 			
 			$('#notes').fadeOut('fast', function () {
 				$('#editor').fadeIn('fast');
+			});
+			
+		},
+		
+		preview: function () {
+			
+			// create the HTML form the markdown markup
+			var noteHTML = Converter.makeHtml(this.model.get('content'));
+			
+			// let's inject the content into the iframe
+			$('#preview iframe').contents().find("body").html(noteHTML);
+			
+			// update the title
+			$('#preview h2').text('Previewing ' + this.model.get('title'));
+			
+			// show the preview itself
+			$('#notes').fadeOut('fast', function () {
+				$('#preview').fadeIn('fast');
 			});
 			
 		}
@@ -114,7 +133,8 @@ $(function(){
 		initialize: function () {
 			
 			// initialise the editor view
-			window.Editor = new EditorView
+			window.Editor = new EditorView;
+			window.Converter = new Showdown.converter();
 			
 			_.bindAll(this, 'noteAdd', 'notesReset', 'notesBootstrap', 'render');
 			
@@ -179,7 +199,8 @@ $(function(){
 		
 		routes: {
 			"!/local/create": "createNote",
-			"!/local/:note": "editNote"
+			"!/local/:note": "editNote",
+			"!/list": "list"
 		},
 		
 		createNote: function () {
@@ -195,6 +216,16 @@ $(function(){
 		
 		editNote: function (note) {
 			log('edit note: ' + note);
+		},
+		
+		list: function () {
+			
+			$('#preview').fadeOut('fast', function () {
+				$('#notes').fadeIn('fast');
+			});
+			
+			AppController.navigate("");
+			
 		}
 		
 	});

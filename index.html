@@ -16,7 +16,7 @@
 	
 	<link rel="shortcut icon" href="/favicon.ico">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-	<link rel="stylesheet" href="css/style.css?v=13">
+	<link rel="stylesheet" href="css/style.css?v=14">
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,400,900italic&v2' rel='stylesheet' type='text/css'>
 
 	<script src="js/libs/modernizr-1.7.min.js"></script>
@@ -59,6 +59,19 @@
 			<input id="save" type="button" name="save" value="save">
 			
 		</div>
+		
+		<div id="preview" style="display: none;">
+
+			<div class="control-bar">
+				
+				<h2>Preview</h2>
+				
+				<a href="#!/list">Close preview</a>
+			</div>
+			
+			<iframe src="preview.html"></iframe>
+		
+		<div>
 
 		<footer>
 
@@ -69,6 +82,7 @@
 	
 		<div class="note">
 			<h1><%= title %></h1>
+			<span class="icon-preview"></span>
 			<ul class="attributes">
 				<li>Created: <%= created %></li>
 			</ul>
@@ -81,8 +95,9 @@
 	<script src="js/libs/underscore-1.1.7.min.js"></script>
 	<script src="js/libs/backbone-0.5.1.min.js"></script>
 	<script src="js/libs/backbone.localStorage.min.js"></script>
+	<script src="js/libs/showdown.js"></script>
 	<script src="js/plugins.js"></script>
-	<script src="js/script.js?v=5"></script>
+	<script src="js/script.js?v=7"></script>
 	<!--[if lt IE 7 ]>
 	<script src="js/libs/dd_belatedpng.js"></script>
 	<script> DD_belatedPNG.fix('img, .png_bg');</script>

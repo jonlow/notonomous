@@ -137,27 +137,50 @@ header {
 	
 }
 
-div#notes {
+#preview {
+
+	width: 100%;
+	min-height: 280px;
+	height: 300px;
 	
-	.control-bar {
-		
-		h2 {
-			float: left;
-		}
-		
-		a {
-			float: right;
-			font-family: 'Lato', sans-serif;
-			font-weight: 400;
-		}
-		
+	iframe {
+		width: 100%;
+		height: 100%;
+		border: 1px solid #DDD;
 	}
+	
+}
+
+.icon-preview {
+	display: block;
+	background: url('/wsimages/icons.png') -525px -238px no-repeat;
+	height: 18px;
+	width: 18px;
+	margin: 0;
+}
+
+.control-bar {
+	
+	h2 {
+		float: left;
+	}
+	
+	a {
+		float: right;
+		font-family: 'Lato', sans-serif;
+		font-weight: 400;
+	}
+	
+}
+
+div#notes {
 	
 	#notes-list {
 
 		margin: 0;
 
 		li {
+			
 			list-style: none;
 			background: #F3F3F3;
 			overflow: hidden;
@@ -166,31 +189,53 @@ div#notes {
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			margin: 0 0 2px 0;
+			
+			&:hover {
+				
+				background: #D0D0D0;
+				
+				div.note {
+				
+					.icon-preview {
+						display: block;
+						float: left;
+					}
+				
+				}
+				
+			}
+			
+			div.note {
+
+				h1 {
+					float: left;
+					padding: 5px;
+					font-family: 'Lato', sans-serif;
+					font-weight: 400;
+				}
+
+				.icon-preview {
+					display: none;
+					position: relative;
+					top: 4px;
+				}
+
+				ul {
+
+					margin: 0;
+					float: right;
+
+					li {
+						margin: 0;
+						color: #8A8A8A;
+					}
+
+				}
+
+			}
+			
 		}
 
-	}
-	
-}
-
-div.note {
-	
-	h1 {
-		float: left;
-		padding: 5px;
-		font-family: 'Lato', sans-serif;
-		font-weight: 400;
-	}
-	
-	ul {
-		
-		margin: 0;
-		float: right;
-		
-		li {
-			margin: 0;
-			color: #8A8A8A;
-		}
-		
 	}
 	
 }
