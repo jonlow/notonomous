@@ -298,20 +298,23 @@ a.button {
 	
 }
 
-.icon-preview {
+.icon {
 	display: block;
-	background: url('/wsimages/icons.png') 0px 0px no-repeat;
 	height: 24px;
 	width: 24px;
-	margin: 0;
+	margin: 0;	
+}
+
+.icon-preview {
+	background: url('/wsimages/icons.png') 0px 0px no-repeat;
 }
 
 .icon-edit {
-	display: block;
 	background: url('/wsimages/icon-pencil.png') 0px 0px no-repeat;
-	height: 24px;
-	width: 24px;
-	margin: 0;
+}
+
+.icon-delete {
+	background: url('/wsimages/icon-delete.png') 0px 0px no-repeat;
 }
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }

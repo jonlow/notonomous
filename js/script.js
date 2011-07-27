@@ -3,6 +3,9 @@ $(function(){
 	// the note model
 	window.Note = Backbone.Model.extend({
 		
+		// we've replaced Backbone.sync with the localStorage adapter
+		localStorage: new Store("notes"),
+		
 		initialize: function () {
 			// only create the date if we have a new model object
 			if (this.isNew()) this.set({"created": new Date()});	
@@ -40,7 +43,8 @@ $(function(){
 		events: {
 			"dblclick": "edit",
 			"click .icon-edit": "edit",
-			"click .icon-preview": "preview"
+			"click .icon-preview": "preview",
+			"click .icon-delete": "delete"
 		},
 		
 		initialize: function () {
@@ -90,6 +94,21 @@ $(function(){
 			// show the preview itself
 			$('#notes').fadeOut('fast', function () {
 				$('#preview').fadeIn('fast');
+			});
+			
+		},
+		
+		delete: function () {
+			
+			// create a quick reference on the object itself
+			this.el.model = this.model;
+			
+			// fade the div out, and then remove it from the model, and the DOM
+			$(this.el).fadeOut('slow', function () {
+				
+				this.model.destroy();
+				$(this).remove();
+				
 			});
 			
 		}

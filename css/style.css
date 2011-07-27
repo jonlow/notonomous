@@ -299,19 +299,20 @@ a.button {
   a.button + a.button {
     margin-right: 10px; }
 
-.icon-preview {
+.icon {
   display: block;
-  background: url("/wsimages/icons.png") 0px 0px no-repeat;
   height: 24px;
   width: 24px;
   margin: 0; }
 
+.icon-preview {
+  background: url("/wsimages/icons.png") 0px 0px no-repeat; }
+
 .icon-edit {
-  display: block;
-  background: url("/wsimages/icon-pencil.png") 0px 0px no-repeat;
-  height: 24px;
-  width: 24px;
-  margin: 0; }
+  background: url("/wsimages/icon-pencil.png") 0px 0px no-repeat; }
+
+.icon-delete {
+  background: url("/wsimages/icon-delete.png") 0px 0px no-repeat; }
 
 .ir {
   display: block;
