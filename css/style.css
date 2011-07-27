@@ -242,12 +242,15 @@ div#notes #notes-list {
 
 div.note h1 {
   float: left;
-  padding: 5px; }
+  padding: 5px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400; }
 div.note ul {
   margin: 0;
   float: right; }
   div.note ul li {
-    margin: 0; }
+    margin: 0;
+    color: #8A8A8A; }
 
 .ir {
   display: block;
