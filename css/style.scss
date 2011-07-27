@@ -175,14 +175,6 @@ header {
 	
 }
 
-.icon-preview {
-	display: block;
-	background: url('/wsimages/icons.png') 0px 0px no-repeat;
-	height: 24px;
-	width: 24px;
-	margin: 0;
-}
-
 .control-bar {
 	
 	h2 {
@@ -205,59 +197,69 @@ div#notes {
 
 		li {
 			
-			@include rounded-basic-border;
 			list-style: none;
-			background: #F3F3F3;
-			overflow: hidden;
-			padding: 5px;
 			margin: 0 0 2px 0;
 			
 			cursor: pointer;
 			
-			div.note {
-
-				h1 {
-					float: left;
-					padding: 5px;
-					font-family: 'Lato', sans-serif;
-					font-weight: 400;
-					
-					user-select: none;
-					-webkit-user-select: none;
-					-moz-user-select: none;					
-				}
-
-				.icon-preview {
+			article.note {
+				
+				.icon {
 					display: none;
 					position: relative;
-					top: 2px;
+					top: 7px;
+					margin: 0 4px 0 4px;
 				}
+				
+				div {
+					
+					@include rounded-basic-border;
+					background: #F3F3F3;
+					overflow: hidden;
+					padding: 5px;
+					
+					h1 {
+						float: left;
+						padding: 5px;
+						font-family: 'Lato', sans-serif;
+						font-weight: 400;
 
-				ul {
-
-					margin: 0;
-					float: right;
-
-					li {
-						@include rounded-basic;
-						margin: 0;
-						color: #8A8A8A;
-						background: none;
+						user-select: none;
+						-webkit-user-select: none;
+						-moz-user-select: none;					
 					}
 
+					ul {
+
+						margin: 0;
+						float: right;
+
+						li {
+							/* @include rounded-basic; */
+							margin: 0;
+							color: #8A8A8A;
+							background: none;
+						}
+
+					}
+					
 				}
 
 			}
 			
 			&:hover {
 				
-				background: #D0D0D0;
+				/* background: #D0D0D0; */
 				
-				div.note {
-				
-					.icon-preview {
+				article.note {
+					
+					.icon {
 						display: block;
 						float: left;
+					}
+					
+					div {
+						background: #D0D0D0;
 					}
 				
 				}
@@ -268,6 +270,22 @@ div#notes {
 
 	}
 	
+}
+
+.icon-preview {
+	display: block;
+	background: url('/wsimages/icons.png') 0px 0px no-repeat;
+	height: 24px;
+	width: 24px;
+	margin: 0;
+}
+
+.icon-edit {
+	display: block;
+	background: url('/wsimages/icon-pencil.png') 0px 0px no-repeat;
+	height: 24px;
+	width: 24px;
+	margin: 0;
 }
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }

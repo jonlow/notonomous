@@ -39,6 +39,7 @@ $(function(){
 		
 		events: {
 			"dblclick": "edit",
+			"click .icon-edit": "edit",
 			"click .icon-preview": "preview"
 		},
 		
