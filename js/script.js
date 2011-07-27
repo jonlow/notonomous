@@ -4,8 +4,8 @@ $(function(){
 	window.Note = Backbone.Model.extend({
 		
 		initialize: function () {
-			// make sure we store when the date was created
-			this.set({"created": new Date()});			
+			// only create the date if we have a new model object
+			if (this.isNew()) this.set({"created": new Date()});	
 		},
 		
 		defaults: {
@@ -53,6 +53,9 @@ $(function(){
 		},
 		
 		render: function () {
+			
+			// let's add a friendly date string
+			this.model.set({sCreated: $.timeago(this.model.get('created'))});
 			
 			$(this.el).html(this.template(this.model.toJSON()));
 			return this;

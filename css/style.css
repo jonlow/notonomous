@@ -266,7 +266,7 @@ div#notes #notes-list {
         -webkit-user-select: none;
         -moz-user-select: none; }
       div#notes #notes-list li article.note div ul {
-        margin: 0;
+        margin: 6px 0 0 0;
         float: right; }
         div#notes #notes-list li article.note div ul li {
           margin: 0;
