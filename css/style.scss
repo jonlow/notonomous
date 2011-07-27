@@ -80,6 +80,30 @@ a:hover { color: #036; }
 
 /* Your styles */
 
+$border-color: #DDD;
+
+@mixin rounded-basic {
+	
+	$radius: 5px;
+	
+	border: none;
+	
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+@mixin rounded-basic-border {
+	
+	$radius: 5px;
+	
+	border: 1px solid $border-color;
+	
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
 header {
 	
 	background: #333;
@@ -91,7 +115,7 @@ header {
 		font-weight: bold;
 		font-style: italic;
 		font-size: 26px;
-		color: #DDD;
+		color: $border-color;
 	}
 	
 }
@@ -118,7 +142,7 @@ header {
 		margin: 0 0 10px 0;
 		padding: 10px 10px;
 		font-size: 18px;
-		border: 1px solid #DDD;
+		border: 1px solid $border-color;
 		font-family: 'Lato', sans-serif;
 		font-weight: 400;
 	}
@@ -130,7 +154,7 @@ header {
 		padding: 10px 10px;
 		font-size: 14px;
 		font-weight: bold;
-		border: 1px solid #DDD;
+		border: 1px solid $border-color;
 		font-family: 'Lato', sans-serif;
 		font-weight: 400;
 	}
@@ -146,16 +170,16 @@ header {
 	iframe {
 		width: 100%;
 		height: 100%;
-		border: 1px solid #DDD;
+		border: 1px solid $border-color;
 	}
 	
 }
 
 .icon-preview {
 	display: block;
-	background: url('/wsimages/icons.png') -525px -238px no-repeat;
-	height: 18px;
-	width: 18px;
+	background: url('/wsimages/icons.png') 0px 0px no-repeat;
+	height: 24px;
+	width: 24px;
 	margin: 0;
 }
 
@@ -181,14 +205,49 @@ div#notes {
 
 		li {
 			
+			@include rounded-basic-border;
 			list-style: none;
 			background: #F3F3F3;
 			overflow: hidden;
 			padding: 5px;
-			border-radius: 5px;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
 			margin: 0 0 2px 0;
+			
+			cursor: pointer;
+			
+			div.note {
+
+				h1 {
+					float: left;
+					padding: 5px;
+					font-family: 'Lato', sans-serif;
+					font-weight: 400;
+					
+					user-select: none;
+					-webkit-user-select: none;
+					-moz-user-select: none;					
+				}
+
+				.icon-preview {
+					display: none;
+					position: relative;
+					top: 2px;
+				}
+
+				ul {
+
+					margin: 0;
+					float: right;
+
+					li {
+						@include rounded-basic;
+						margin: 0;
+						color: #8A8A8A;
+						background: none;
+					}
+
+				}
+
+			}
 			
 			&:hover {
 				
@@ -203,35 +262,6 @@ div#notes {
 				
 				}
 				
-			}
-			
-			div.note {
-
-				h1 {
-					float: left;
-					padding: 5px;
-					font-family: 'Lato', sans-serif;
-					font-weight: 400;
-				}
-
-				.icon-preview {
-					display: none;
-					position: relative;
-					top: 4px;
-				}
-
-				ul {
-
-					margin: 0;
-					float: right;
-
-					li {
-						margin: 0;
-						color: #8A8A8A;
-					}
-
-				}
-
 			}
 			
 		}
