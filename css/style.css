@@ -269,17 +269,35 @@ div#notes #notes-list {
         margin: 0;
         float: right; }
         div#notes #notes-list li article.note div ul li {
-          /* @include rounded-basic; */
           margin: 0;
           color: #8A8A8A;
           background: none; }
-    div#notes #notes-list li:hover {
-      /* background: #D0D0D0; */ }
-      div#notes #notes-list li:hover article.note .icon {
-        display: block;
-        float: left; }
-      div#notes #notes-list li:hover article.note div {
-        background: #D0D0D0; }
+    div#notes #notes-list li:hover article.note .icon {
+      display: block;
+      float: left; }
+    div#notes #notes-list li:hover article.note div {
+      background: #D0D0D0; }
+
+a.button {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background: #8A8A8A;
+  color: #FFF;
+  font-size: 14px;
+  text-decoration: none; }
+  a.button:hover {
+    background: #555; }
+  a.button.create {
+    color: #333;
+    background: #AEEF88; }
+  a.button.save {
+    color: #333;
+    background: #3CFFFF; }
+  a.button + a.button {
+    margin-right: 10px; }
 
 .icon-preview {
   display: block;

@@ -235,7 +235,6 @@ div#notes {
 						float: right;
 
 						li {
-							/* @include rounded-basic; */
 							margin: 0;
 							color: #8A8A8A;
 							background: none;
@@ -248,8 +247,6 @@ div#notes {
 			}
 			
 			&:hover {
-				
-				/* background: #D0D0D0; */
 				
 				article.note {
 					
@@ -268,6 +265,35 @@ div#notes {
 			
 		}
 
+	}
+	
+}
+
+a.button {
+	
+	padding: 8px;
+	@include rounded-basic;
+	background: #8A8A8A;
+	color: #FFF;
+	font-size: 14px;
+	text-decoration: none;
+	
+	&:hover {
+		background: #555;
+	}
+	
+	&.create {
+		color: #333;
+		background: #AEEF88;
+	}
+	
+	&.save {
+		color: #333;
+		background: #3CFFFF;
+	}
+	
+	&+ a.button {
+		margin-right: 10px;
 	}
 	
 }
