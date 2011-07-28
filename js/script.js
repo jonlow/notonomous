@@ -129,6 +129,8 @@ $(function(){
 		
 		initialize: function () {
 			_.bindAll(this, 'titleChanged', 'contentChanged');
+			// initiate jquery plugin to allow tab-editing functionality in the editors textarea
+			$('#content').tabOverride();
 		},
 		
 		titleChanged: function (e) {
