@@ -104,6 +104,12 @@ $border-color: #DDD;
 	-moz-border-radius: $radius;
 }
 
+@mixin nonselectable {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+
 header {
 	
 	background: #333;
@@ -126,7 +132,7 @@ header {
 	
 	h2 {
 		font-family: 'Lato', sans-serif;
-		font-weight: 100;
+		font-weight: 300;
 		font-size: 24px;
 		margin: 0 0 14px 0;
 	}
@@ -207,8 +213,8 @@ div#notes {
 				.icon {
 					display: none;
 					position: relative;
-					top: 7px;
-					margin: 0 4px 0 4px;
+					top: 6px;
+					margin: 0 2px 0 2px;
 				}
 				
 				div {
@@ -223,10 +229,7 @@ div#notes {
 						padding: 5px;
 						font-family: 'Lato', sans-serif;
 						font-weight: 400;
-
-						user-select: none;
-						-webkit-user-select: none;
-						-moz-user-select: none;					
+						@include nonselectable;				
 					}
 
 					ul {
@@ -238,6 +241,7 @@ div#notes {
 							margin: 0;
 							color: #8A8A8A;
 							background: none;
+							@include nonselectable;
 						}
 
 					}
@@ -306,15 +310,15 @@ a.button {
 }
 
 .icon-preview {
-	background: url('/wsimages/icons.png') 0px 0px no-repeat;
+	background: url('/wsimages/icons.png') 0px -48px no-repeat;
 }
 
 .icon-edit {
-	background: url('/wsimages/icon-pencil.png') 0px 0px no-repeat;
+	background: url('/wsimages/icons.png') 0px -24px no-repeat;
 }
 
 .icon-delete {
-	background: url('/wsimages/icon-delete.png') 0px 0px no-repeat;
+	background: url('/wsimages/icons.png') 0px 0px no-repeat;
 }
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }

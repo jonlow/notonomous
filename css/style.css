@@ -197,7 +197,7 @@ header {
   padding: 0 90px; }
   #notonomous h2 {
     font-family: 'Lato', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 24px;
     margin: 0 0 14px 0; }
 
@@ -247,8 +247,8 @@ div#notes #notes-list {
     div#notes #notes-list li article.note .icon {
       display: none;
       position: relative;
-      top: 7px;
-      margin: 0 4px 0 4px; }
+      top: 6px;
+      margin: 0 2px 0 2px; }
     div#notes #notes-list li article.note div {
       border: 1px solid #dddddd;
       border-radius: 5px;
@@ -271,7 +271,10 @@ div#notes #notes-list {
         div#notes #notes-list li article.note div ul li {
           margin: 0;
           color: #8A8A8A;
-          background: none; }
+          background: none;
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none; }
     div#notes #notes-list li:hover article.note .icon {
       display: block;
       float: left; }
@@ -306,13 +309,13 @@ a.button {
   margin: 0; }
 
 .icon-preview {
-  background: url("/wsimages/icons.png") 0px 0px no-repeat; }
+  background: url("/wsimages/icons.png") 0px -48px no-repeat; }
 
 .icon-edit {
-  background: url("/wsimages/icon-pencil.png") 0px 0px no-repeat; }
+  background: url("/wsimages/icons.png") 0px -24px no-repeat; }
 
 .icon-delete {
-  background: url("/wsimages/icon-delete.png") 0px 0px no-repeat; }
+  background: url("/wsimages/icons.png") 0px 0px no-repeat; }
 
 .ir {
   display: block;
