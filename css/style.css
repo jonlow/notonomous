@@ -205,6 +205,9 @@ header {
   margin: 45px 0; }
   #editor input#title {
     width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-webkit-sizing: border-box;
     margin: 0 0 10px 0;
     padding: 10px 10px;
     font-size: 18px;
@@ -213,6 +216,9 @@ header {
     font-weight: 400; }
   #editor textarea#content {
     width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-webkit-sizing: border-box;
     min-height: 280px;
     margin: 0 0 10px 0;
     padding: 10px 10px;
@@ -224,6 +230,9 @@ header {
   #editor iframe {
     display: none;
     width: 49%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-webkit-sizing: border-box;
     min-height: 280px;
     border: 1px solid #dddddd; }
   #editor.preview textarea#content {
@@ -231,8 +240,7 @@ header {
     width: 49%; }
   #editor.preview iframe {
     display: block;
-    float: right;
-    margin: 0 -22px 0 0; }
+    float: right; }
 
 #preview {
   width: 100%;

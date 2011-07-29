@@ -111,6 +111,17 @@ $font-color: #444;
 	-moz-user-select: none;
 }
 
+@mixin css3-fullwidth {
+	width: 100%;
+	@include css3-boxsizing;
+}
+
+@mixin css3-boxsizing {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-moz-webkit-sizing: border-box;
+}
+
 @mixin pointer {
 	cursor: pointer;
 }
@@ -149,7 +160,7 @@ header {
 	margin: 45px 0;
 	
 	input#title {
-		width: 100%;
+		@include css3-fullwidth;
 		margin: 0 0 10px 0;
 		padding: 10px 10px;
 		font-size: 18px;
@@ -159,7 +170,7 @@ header {
 	}
 	
 	textarea#content {
-		width: 100%;
+		@include css3-fullwidth;
 		min-height: 280px;
 		margin: 0 0 10px 0;
 		padding: 10px 10px;
@@ -173,6 +184,7 @@ header {
 	iframe {
 		display: none;
 		width: 49%;
+		@include css3-boxsizing;
 		min-height: 280px;
 		border: 1px solid $border-color;
 	}
@@ -187,7 +199,6 @@ header {
 		iframe {
 			display: block;
 			float: right;
-			margin: 0 -22px 0 0;
 		}
 		
 	}
