@@ -299,6 +299,10 @@ a.button {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
   background: #8A8A8A;
   color: #FFF;
   font-size: 14px;
@@ -319,7 +323,8 @@ a.button {
     border: 1px solid #444444;
     color: #444444; }
   a.button.toggle.on {
-    text-decoration: none; }
+    text-decoration: none;
+    border: 1px solid #AEEF88; }
 
 .icon {
   display: block;

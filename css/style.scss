@@ -111,6 +111,10 @@ $font-color: #444;
 	-moz-user-select: none;
 }
 
+@mixin pointer {
+	cursor: pointer;
+}
+
 header {
 	
 	background: #333;
@@ -300,6 +304,8 @@ a.button {
 	
 	padding: 8px;
 	@include rounded-basic;
+	@include nonselectable;
+	@include pointer;
 	background: #8A8A8A;
 	color: #FFF;
 	font-size: 14px;
@@ -332,6 +338,7 @@ a.button {
 	
 	&.toggle.on {
 		text-decoration: none;
+		border: 1px solid #AEEF88;
 	}
 	
 }
