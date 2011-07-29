@@ -81,6 +81,7 @@ a:hover { color: #036; }
 /* Your styles */
 
 $border-color: #DDD;
+$font-color: #444;
 
 @mixin rounded-basic {
 	
@@ -163,6 +164,28 @@ header {
 		border: 1px solid $border-color;
 		font-family: 'Lato', sans-serif;
 		font-weight: 400;
+	}
+	
+	iframe {
+		display: none;
+		width: 49%;
+		min-height: 280px;
+		border: 1px solid $border-color;
+	}
+	
+	&.preview {
+		
+		textarea#content {
+			float: left;
+			width: 49%;
+		}
+		
+		iframe {
+			display: block;
+			float: right;
+			margin: 0 -22px 0 0;
+		}
+		
 	}
 	
 }
@@ -298,6 +321,17 @@ a.button {
 	
 	&+ a.button {
 		margin-right: 10px;
+	}
+	
+	&.toggle {
+		text-decoration: line-through;
+		background: #FFF;
+		border: 1px solid $font-color;
+		color: $font-color;
+	}
+	
+	&.toggle.on {
+		text-decoration: none;
 	}
 	
 }
