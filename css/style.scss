@@ -119,7 +119,7 @@ $font-color: #444;
 @mixin css3-boxsizing {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	-moz-webkit-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
 @mixin pointer {
