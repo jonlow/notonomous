@@ -1,5 +1,5 @@
 
-// the note model
+// the note model.
 window.Note = Backbone.Model.extend({
 	
 	// we've replaced Backbone.sync with the localStorage adapter
