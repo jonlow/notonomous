@@ -243,6 +243,11 @@ window.AppController = new NotonomousController;
 
 $(function(){
 	
+	// update unscore regex
+	_.templateSettings = {
+	  interpolate : /\{\{(.+?)\}\}/g
+	};
+	
 	// the app itself
 	window.NotonomousView = Backbone.View.extend({
 		
