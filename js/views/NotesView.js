@@ -41,12 +41,16 @@ window.NotesView = Backbone.View.extend({
 		$('#title').val(this.model.get('title'));
 		$('#content').val(this.model.get('content'));
 		
+		var titleTemplate = _.template($('#editor-title-template').html());
+		$('#editor .control-bar h2').html(titleTemplate(this.model.toJSON()));
+		
 		$('#notes').fadeOut('fast', function () {
 			$('#editor').fadeIn('fast');
 		});
 		
 	},
 	
+	// this needs to be refactored to use routes and another view
 	preview: function () {
 		
 		// create the HTML form the markdown markup
@@ -55,8 +59,8 @@ window.NotesView = Backbone.View.extend({
 		// let's inject the content into the iframe
 		$('#preview iframe').contents().find("body").html(noteHTML);
 		
-		// update the title
-		$('#preview h2').text('Previewing ' + this.model.get('title'));
+		var titleTemplate = _.template($('#preview-title-template').html());
+		$('#preview h2').html(titleTemplate(this.model.toJSON()));
 		
 		// show the preview itself
 		$('#notes').fadeOut('fast', function () {
