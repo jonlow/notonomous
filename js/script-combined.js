@@ -15,7 +15,8 @@ window.Note = Backbone.Model.extend({
 		content: 'content...',
 		created: null,
 		lastSaved: null,
-		bMarkup: false
+		bMarkup: false,
+		bSynced: false
 	}
 	
 });
