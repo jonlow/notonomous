@@ -258,14 +258,33 @@ header {
 
 #preview {
 
-	width: 100%;
-	min-height: 280px;
-	height: 300px;
+	position: absolute;
+	left: 90px;
+	top: 105px;
+	right: 90px;
+	bottom: 70px;
 	
-	iframe {
-		width: 100%;
-		height: 100%;
+	min-height: 320px;
+	min-width: 320px;
+	
+	.iframe {
+		
+		position: absolute;
+		
+		left: 0px;
+		right: 0px;
+		top: 45px;
+		bottom: 0px;
+		
 		border: 1px solid $border-color;
+		
+		iframe {
+			
+			width: 100%;
+			height: 100%;
+			
+		}
+		
 	}
 	
 }
