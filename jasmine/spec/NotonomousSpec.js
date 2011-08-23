@@ -29,9 +29,23 @@ describe("Note model", function() {
 		});
 		
 		it("should not be synced with the server", function() {
-		  	
 			expect(note.get('bSynced')).toBeFalsy();
+		});
 		
+		it("should have a property called syncDelta", function() {
+		  	expect(note.get('syncDelta')).toBeDefined();
+		});
+		
+		it("should have a null sync delta", function() {
+			expect(note.get('syncDelta')).toBeNull();
+		});
+		
+		it("should have a property called sid (server id)", function() {
+		  	expect(note.get('sid')).toBeDefined();
+		});
+		
+		it("should have a null sid", function() {
+		  	expect(note.get('sid')).toBeNull();
 		});
 	
 	});
