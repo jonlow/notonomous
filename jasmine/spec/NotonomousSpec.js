@@ -47,6 +47,14 @@ describe("Note model", function() {
 		it("should have a null sid", function() {
 		  	expect(note.get('sid')).toBeNull();
 		});
+		
+		it("should have a property called user", function() {
+		  expect(note.get('user')).toBeDefined();
+		});
+		
+		it("should have a null user", function() {
+		  expect(note.get('user')).toBeNull();
+		});
 	
 	});
 
