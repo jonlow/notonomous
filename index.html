@@ -17,6 +17,7 @@
 	<link rel="shortcut icon" href="/favicon-32x32.png">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	<link rel="stylesheet" href="css/style.css?v=23">
+	<link rel="stylesheet" href="css/reveal.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900italic&v2' rel='stylesheet' type='text/css'>
 
 	<script src="js/libs/modernizr-1.7.min.js"></script>
@@ -58,6 +59,8 @@
 				
 				<a id="live-preview" class="button toggle">live preview</a>
 				
+				<a id="markdownsyntax-preview" data-reveal-id="markdownSyntaxModal" class="button">markdown syntax</a>
+				
 			</div>
 			
 			<div class="controls clearfix">
@@ -74,6 +77,25 @@
 			
 				<a id="save" class="button save" href="#">save</a> or <a href="#!/list">cancel</a>
 			
+			</div>
+			
+			<div id="markdownSyntaxModal" class="reveal-modal">
+				
+				<h1>Markdown Syntax</h1>
+				
+				<dl>
+					<dt><code>Regular paragraph.</code></dt>
+					<dd>A new line of text represents a regular paragraph (i.e. the text will be wrapped in a p tag).</dd>
+					
+					<dt><code>#</code></dt>
+					<dd>represents a heading (i.e. a h1 tag) (1-6 hash characters correspond to heading levels 1-6)</dd>
+					
+					<dt><code>---</code></dt>
+					<dd>a horizontal rule, a <code>&lt;hr /&gt;</code> (in fact, by placing three or more hyphens, asterisks, or underscores in a line on their own will produce a horizontal rule)</dd>
+				</dl>
+				
+				<p>This is only a quick reference, visit <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Daring Fireball for a more complete markdown syntax reference</a>.</p>
+				
 			</div>
 			
 		</div>
@@ -130,6 +152,7 @@
 	<script src="js/libs/showdown.js"></script>
 	<script src="js/libs/timeago-0.9.3.js"></script>
 	<script src="js/libs/taboverride-1.1.js"></script>
+	<script src="js/libs/jquery.reveal.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script-combined.js?v=17"></script>
 	<!--[if lt IE 7 ]>
