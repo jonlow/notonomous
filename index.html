@@ -17,7 +17,6 @@
 	<link rel="shortcut icon" href="/favicon-32x32.png">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	<link rel="stylesheet" href="css/style.css?v=23">
-	<link rel="stylesheet" href="css/reveal.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900italic&v2' rel='stylesheet' type='text/css'>
 
 	<script src="js/libs/modernizr-1.7.min.js"></script>
@@ -79,7 +78,7 @@
 			
 			</div>
 			
-			<div id="markdownSyntaxModal" class="reveal-modal">
+			<section id="markdownSyntaxModal" class="reveal-modal">
 				
 				<h1>Markdown Syntax</h1>
 				
@@ -88,15 +87,35 @@
 					<dd>A new line of text represents a regular paragraph (i.e. the text will be wrapped in a p tag).</dd>
 					
 					<dt><code>#</code></dt>
-					<dd>represents a heading (i.e. a h1 tag) (1-6 hash characters correspond to heading levels 1-6)</dd>
+					<dd>The hash character represents a heading (i.e. a h1 tag). 1-6 hash characters correspond to heading levels 1-6.</dd>
+					
+					<dt><code>**bold**</code></dt>
+					<dd>Two asterisks (**) or underscores (__) immediately prefixing and suffixing a word wraps the word in a strong tag.</dd>
+					
+					<dt><code>*italics*</code></dt>
+					<dd>One asterisk (*) or underscore (_) immediately prefixing and suffixing a word wraps the word in an em tag.</dd>
+					
+					<dt><code>* List item</code></dt>
+					<dd>An asterisk, pluse or hyphen followed by one or more spaces or a tab, will produce an unordered list.</dd>
+					
+					<dt><code>1. List item</code></dt>
+					<dd>A number, followed by a period and then one or more spaces or a tab, will produce an ordered list.</dd>
+					
+					<dt><code>* List item</code><br /><code>&nbsp;&nbsp;&nbsp;&nbsp;* Nested list item</code></dt>
+					<dd>On the line directly beneath a list item, starting a new list item indented with three or more spaces or a tab will produce a nested list.</dd>
+					
+					<dt><code>[link text](http://www.google.com/)</code></dt>
+					<dd>Will produce a link to Google with the link text being link text.</dd>
 					
 					<dt><code>---</code></dt>
-					<dd>a horizontal rule, a <code>&lt;hr /&gt;</code> (in fact, by placing three or more hyphens, asterisks, or underscores in a line on their own will produce a horizontal rule)</dd>
+					<dd>Placing three or more hyphens, asterisks, or underscores in a line of their own will produce a horizontal rule.</dd>
 				</dl>
 				
 				<p>This is only a quick reference, visit <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Daring Fireball for a more complete markdown syntax reference</a>.</p>
 				
-			</div>
+				<a class="close-reveal-modal">&#215;</a>
+				
+			</section>
 			
 		</div>
 		
