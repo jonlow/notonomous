@@ -32,18 +32,17 @@ $(function(){
 			window.Editor = new EditorView;
 			window.Converter = new Showdown.converter();
 			
-			_.bindAll(this, 'noteAdd', 'notesReset', 'notesBootstrap', 'render');
+			_.bindAll(this, 'noteAdd', 'notesReset', 'render');
 			
 			Notes.bind('add', this.noteAdd);
 			Notes.bind('reset', this.notesReset);
-			Notes.bind('reset', this.notesBootstrap);
 			Notes.bind('all', this.render);
-			
-			// now that my application has initialise, I can start routing events
-			Backbone.history.start();
 			
 			// load the collection (and therefore model)
 			Notes.fetch();
+			
+			// now that my application has initialise, I can start routing events
+			Backbone.history.start();
 			
 		},
 		
@@ -56,11 +55,6 @@ $(function(){
 		// the entire Notes collection has been reset (a load from localStorage), update the views
 		notesReset: function () {
 			Notes.each(this.noteAdd);
-		},
-		
-		// do we show the firstTime note, or do we show the list of 'your notes'?
-		notesBootstrap: function () {
-			$('#' + (Notes.length === 0 ? 'firstTime' : 'notes')).fadeIn('slow');
 		},
 		
 		// ?

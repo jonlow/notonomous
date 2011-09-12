@@ -3,10 +3,15 @@
 window.NotonomousController = Backbone.Router.extend({
 	
 	routes: {
+		"": "index",
 		"!/local/create": "createNote",
 		"!/local/:note": "editNote",
 		"!/list": "list",
 		"!/print": "print"
+	},
+	
+	index: function () {
+		$('#' + (Notes.length === 0 ? 'firstTime' : 'notes')).fadeIn('slow');
 	},
 	
 	createNote: function () {
